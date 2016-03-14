@@ -1,0 +1,17 @@
+using System;
+
+class FirTree
+{
+    static void Main()
+    {
+        int n = int.Parse(Console.ReadLine());
+        string tree = new string('.', n - 2) + "*" + new string('.', n - 2);
+        for (int i = 1; i <= 2 * n - 3; i = i + 2)
+        {
+            string dotString = new string('.', ((2 * n - 3) - i) / 2);
+            string starString = new string('*', i);
+            Console.WriteLine(dotString + starString + dotString);
+        }
+        Console.WriteLine(tree);
+    }
+}
