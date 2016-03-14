@@ -1,0 +1,42 @@
+using System;
+
+class SubsetSums
+{
+    static void Main()
+    {
+        long S = long.Parse(Console.ReadLine());
+        int N = int.Parse(Console.ReadLine());
+        long[] numberN = new long[N];
+        for (int i = 0; i < N; i++)
+        {
+            numberN[i] = long.Parse(Console.ReadLine());
+        }
+        int maxI = 1;
+        for (int i = 1; i <= N; i++)
+        {
+            maxI=maxI*2;
+        }
+        maxI=maxI-1;
+        int count = 0;
+        for (int i = 1; i <= maxI; i++)
+        {
+            long currentSum = 0;
+            for (int j = 0; j < N; j++)
+            {
+                int mask = 1 << j;
+                int nAndMask = i & mask;
+                int bit = nAndMask >> j;
+                if (bit == 1)
+                {
+                    currentSum += numberN[j];
+                }
+            }
+            if (currentSum == S)
+            {
+                count++;
+            }
+        }
+        Console.WriteLine(count);
+    }
+}
+
