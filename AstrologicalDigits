@@ -1,0 +1,39 @@
+using System;
+
+class AstrologicalDigits
+{
+    static void Main()
+    {
+        string N = Console.ReadLine();
+        int newN=0;
+        int sumNdigits = 0;
+        char[] digits = N.ToCharArray();
+        while(true)
+        {
+            while (true)
+            {
+                for (int i = 0; i < digits.Length; i++)
+                {
+                    if (digits[i] != '-' && digits[i] != '.')
+                    {
+                        sumNdigits = sumNdigits + int.Parse(Convert.ToString(digits[i]));
+                    }
+                }
+                if (sumNdigits <= 9)
+                {
+                    Console.WriteLine(sumNdigits);
+                    return;
+                }
+                else
+                {
+                    newN = sumNdigits;
+                    sumNdigits = 0;
+                    digits = (Convert.ToString(newN)).ToCharArray();
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
