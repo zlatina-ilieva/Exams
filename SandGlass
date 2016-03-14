@@ -1,0 +1,25 @@
+using System;
+
+class SandGlass
+{
+    static void Main()
+    {
+        sbyte n = sbyte.Parse(Console.ReadLine());
+        for (sbyte i = n; i > -n; i -= 2)
+        {
+            if (i > 0)
+            {
+                string dotString = new string('.', (n - i) / 2);
+                string starString = new string('*', i);
+                Console.WriteLine(dotString + starString + dotString);
+            }
+            else
+            {
+                string dotString = new string('.', (n + i - 2) / 2);
+                string starString = new string('*', 2 - i);
+                Console.WriteLine(dotString + starString + dotString);
+            }
+        }
+    }
+}
+
