@@ -1,0 +1,26 @@
+using System;
+
+class MissCat
+{
+    static void Main()
+    {
+        int N = int.Parse(Console.ReadLine());
+        int[] cats = new int[11];
+        int Winner = 0;
+        byte WinnerNumber = 0;
+        for (int i = 0; i < N; i++)
+        {
+            byte vote = byte.Parse(Console.ReadLine());
+            cats[vote]++;
+        }
+        for (int i = 0; i < cats.Length; i++)
+        {
+            if (Winner < cats[i])
+            {
+                Winner = cats[i];
+                WinnerNumber = (byte)i;
+            }
+        }
+        Console.WriteLine(WinnerNumber);
+    }
+}
