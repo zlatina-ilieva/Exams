@@ -1,0 +1,41 @@
+using System;
+using System.Globalization;
+using System.Threading;
+
+
+class FighterAttack
+{
+    static void Main()
+    {
+        Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+        int Px1 = int.Parse(Console.ReadLine());
+        int Py1 = int.Parse(Console.ReadLine());
+        int Px2 = int.Parse(Console.ReadLine());
+        int Py2 = int.Parse(Console.ReadLine());
+        int Fx = int.Parse(Console.ReadLine());
+        int Fy = int.Parse(Console.ReadLine());
+        int D = int.Parse(Console.ReadLine());
+        double Damage = 0;
+        int newFx = Fx + D;
+        if ((newFx <= Math.Max(Px1, Px2) && newFx >= Math.Min(Px1, Px2) && Fy <= Math.Max(Py1, Py2) && Fy >= Math.Min(Py1, Py2)))
+        {
+            Damage = Damage + 1;
+        }
+        if ((newFx <= Math.Max(Px1, Px2) && newFx >= Math.Min(Px1, Px2) && Fy + 1 <= Math.Max(Py1, Py2) && Fy + 1 >= Math.Min(Py1, Py2)))
+        {
+            Damage = Damage + 0.5;
+        }
+        if ((newFx <= Math.Max(Px1, Px2) && newFx >= Math.Min(Px1, Px2) && Fy - 1 <= Math.Max(Py1, Py2) && Fy - 1 >= Math.Min(Py1, Py2)))
+        {
+            Damage = Damage + 0.5;
+        }
+
+        //Front 75% hit
+        if ((newFx + 1 <= Math.Max(Px1, Px2) && newFx + 1 >= Math.Min(Px1, Px2) && Fy <= Math.Max(Py1, Py2) && Fy >= Math.Min(Py1, Py2)))
+        {
+            Damage = Damage + 0.75;
+        }
+        Console.WriteLine("{0:0%}", Damage);
+    }
+}
+
