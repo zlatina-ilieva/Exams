@@ -1,0 +1,22 @@
+using System;
+using System.Numerics;
+
+class Tribonacci
+{
+    static void Main()
+    {
+        BigInteger T1 = BigInteger.Parse(Console.ReadLine());
+        BigInteger T2 = BigInteger.Parse(Console.ReadLine());
+        BigInteger T3 = BigInteger.Parse(Console.ReadLine());
+        int N = int.Parse(Console.ReadLine());
+        BigInteger[] T = new BigInteger[N];
+        T[0] = T1;
+        T[1] = T2;
+        T[2] = T3;
+        for (int i = 3; i < N; i++)
+        {
+            T[i] = T[i - 1] + T[i - 2] + T[i - 3];
+        }
+        Console.WriteLine(T[N - 1]);
+    }
+}
