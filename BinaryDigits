@@ -1,0 +1,33 @@
+using System;
+
+class BinaryDigits 
+{
+    static void Main()
+    {
+        int b = int.Parse(Console.ReadLine());
+        int n = int.Parse(Console.ReadLine());
+        uint mask = 0;
+        uint bit = 0;
+        for (int j = 0; j < n; j++)
+        {
+            uint br1 = 0;
+            uint br0 = 0;
+            uint p = uint.Parse(Console.ReadLine());
+            for (int i = 0; i < 32; i++)
+            {
+                mask = (uint)(1 << i);
+                bit = (uint)((p & mask) >> i);
+                if (bit == 1) { br1++; }
+                else if (bit == 0 && mask < p) { br0++; }
+            }
+            if (b == 0)
+            {
+                Console.WriteLine("{0}",br0);
+            }
+            else
+            {
+                Console.WriteLine("{0}",br1);
+            }
+        }
+    }
+}
