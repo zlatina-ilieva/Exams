@@ -1,0 +1,50 @@
+using System;
+
+class Trapezoid
+{
+    static void Main()
+    {
+        int N = int.Parse(Console.ReadLine());
+        for (int i = 0; i <N; i++)
+        {
+            Console.Write(".");
+        }
+        for (int i = N ; i < N * 2; i++)
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine();
+        for (int i = 0; i < N - 1; i++)
+        {
+            for (int j = N-1; j > -1; j--)
+            {
+                if (i != j)
+                {
+                    Console.Write(".");
+                }
+                else
+                {
+                    Console.Write("*");
+                }
+            }
+            for (int k = 0; k < N; k++)
+            {
+                if (k != N-1)
+                {
+                    Console.Write(".");
+                }
+                else
+                {
+                    Console.Write("*");
+                }
+            }
+            Console.WriteLine();
+        }
+        for (int i = 0; i <N * 2; i++)
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine();
+    }
+}
+
